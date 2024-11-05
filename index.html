@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Novo EarBuds</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- link to greensock main library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  </head>
+  <body>
+    <model-viewer
+    id="model"
+    src="Singel_ear_3d.gltf"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    tone-mapping="neutral"
+    poster="poster.webp"
+    shadow-intensity="1.35"
+    camera-orbit="529.1deg 78.06deg 1.709m"
+    field-of-view="30deg"
+    camera-target="-0.49m -2.073m -0.6895m"
+    exposure="1.35"
+    environment-image="legacy"
+  >
+    <!-- Hotspot 1: Adjustable Ear Hooks -->
+    <button
+      class="Hotspot"
+      slot="hotspot-1"
+      data-position="-0.4633713002542351m -2.0432533549079093m -0.6883537744426845m"
+      data-normal="0.05516251777805429m 0.3767802113301343m -0.9246587310907768m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">
+        <h2>Adjustable Ear Hooks</h2>
+        <p>Ear hooks that can be adjusted for a secure fit.</p>
+      </div>
+    </button>
+  
+    <!-- Hotspot 2: Sweat Guard -->
+    <button
+      class="Hotspot"
+      slot="hotspot-2"
+      data-position="-0.2928785493870809m -2.362068346308534m -0.6049027746188417m"
+      data-normal="0.7431414306996544m -0.32098445660086367m -0.5871199133041897m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">
+        <h2>Sweat Guard</h2>
+        <p>Designed with a sweat guard to withstand intense workouts.</p>
+      </div>
+    </button>
+  
+    <!-- Hotspot 3: Strong Noise Cancelling -->
+    <button
+      class="Hotspot"
+      slot="hotspot-3"
+      data-position="-0.525328753368949m -2.452107664106844m -0.4099779918047092m"
+      data-normal="0.35151741761731936m -0.5562152762591339m 0.7530339112999007m"
+      data-visibility-attribute="visible"
+    >
+      <div class="HotspotAnnotation">
+        <h2>Strong Noise Cancelling</h2>
+        <p>Powerful noise cancellation for immersive sound quality.</p>
+      </div>
+    </button>
+  
+    <!-- AR Button -->
+    <button slot="ar-button" id="ar-button">
+      View in your space
+    </button>
+  
+    <!-- AR Prompt -->
+    <div id="ar-prompt">
+      <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="AR Hand Prompt">
+    </div>
+  </model-viewer>
+  
+    <!-- Loads <model-viewer> for browsers: -->
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
+    ></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
