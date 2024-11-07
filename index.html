@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Novo EarBuds</title>
+    <title>SwiftSound EarBuds</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/main.css" rel="stylesheet" />
@@ -11,77 +11,67 @@
   <body>
     <model-viewer
     id="model"
-    src="Singel_ear_3d.gltf"
+    src="Model_viewer/model/Singel_ear_3d.gltf"
     ar
     ar-modes="webxr scene-viewer quick-look"
     camera-controls
     tone-mapping="neutral"
     poster="poster.webp"
-    shadow-intensity="1.35"
-    camera-orbit="529.1deg 78.06deg 1.709m"
+    shadow-intensity="1"
+    camera-orbit="-166.7deg 100deg 1.709m"
     field-of-view="30deg"
-    camera-target="-0.49m -2.073m -0.6895m"
-    exposure="1.35"
-    environment-image="legacy"
-  >
+    camera-target="-0.51m -2.09m -0.5606m"
+    min-camera-orbit="auto 70deg auto"
+    max-camera-orbit="auto 100deg auto"
+    data-dashlane-shadowhost="true"
+    data-dashlane-observed="true"
+>
     <!-- Hotspot 1: Adjustable Ear Hooks -->
     <button
-      class="Hotspot"
-      slot="hotspot-1"
-      data-position="-0.4633713002542351m -2.0432533549079093m -0.6883537744426845m"
-      data-normal="0.05516251777805429m 0.3767802113301343m -0.9246587310907768m"
-      data-visibility-attribute="visible"
+        class="Hotspot"
+        slot="hotspot-1"
+        data-position="-0.6656506419543047m -1.796255116328863m -0.5573909156631414m"
+        data-normal="0.2754932391419712m -0.30311000473588495m -0.9122652027870386m"
+        data-visibility-attribute="visible"
     >
-      <div class="HotspotAnnotation">
-        <h2>Adjustable Ear Hooks</h2>
-        <p>Ear hooks that can be adjusted for a secure fit.</p>
-      </div>
+        <div class="HotspotAnnotation"></div>
     </button>
   
     <!-- Hotspot 2: Sweat Guard -->
     <button
-      class="Hotspot"
-      slot="hotspot-2"
-      data-position="-0.2928785493870809m -2.362068346308534m -0.6049027746188417m"
-      data-normal="0.7431414306996544m -0.32098445660086367m -0.5871199133041897m"
-      data-visibility-attribute="visible"
+        class="Hotspot"
+        slot="hotspot-2"
+        data-position="-0.4707831716898481m -2.0320169350508386m -0.6839883817617827m"
+        data-normal="0.0633332670181215m 0.41450714203660144m -0.9078395929289822m"
+        data-visibility-attribute="visible"
     >
-      <div class="HotspotAnnotation">
-        <h2>Sweat Guard</h2>
-        <p>Designed with a sweat guard to withstand intense workouts.</p>
-      </div>
+        <div class="HotspotAnnotation"></div>
     </button>
   
     <!-- Hotspot 3: Strong Noise Cancelling -->
     <button
-      class="Hotspot"
-      slot="hotspot-3"
-      data-position="-0.525328753368949m -2.452107664106844m -0.4099779918047092m"
-      data-normal="0.35151741761731936m -0.5562152762591339m 0.7530339112999007m"
-      data-visibility-attribute="visible"
+        class="Hotspot"
+        slot="hotspot-3"
+        data-position="-0.2743413438142228m -2.306703026841566m -0.5999849820038027m"
+        data-normal="0.8400113743060258m -0.1281175897784994m -0.5272255439807996m"
+        data-visibility-attribute="visible"
     >
-      <div class="HotspotAnnotation">
-        <h2>Strong Noise Cancelling</h2>
-        <p>Powerful noise cancellation for immersive sound quality.</p>
-      </div>
+        <div class="HotspotAnnotation"></div>
     </button>
-  
+
     <!-- AR Button -->
-    <button slot="ar-button" id="ar-button">
-      View in your space
-    </button>
-  
+    <button slot="ar-button" id="ar-button">View in your space</button>
+
     <!-- AR Prompt -->
     <div id="ar-prompt">
-      <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="AR Hand Prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="AR prompt">
     </div>
-  </model-viewer>
+</model-viewer>
   
+
     <!-- Loads <model-viewer> for browsers: -->
-    <script
-      type="module"
-      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
-    ></script>
-    <script src="js/main.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+      <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+      <script src="js/main.js"></script>
   </body>
 </html>
