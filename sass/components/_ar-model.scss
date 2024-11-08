@@ -1,7 +1,7 @@
 model-viewer {
   width: auto;
   max-width: 1200px;
-  height: 500px;
+  height: 800px;
   background-color: wheat;
   margin: 0 auto;
 }
@@ -22,7 +22,7 @@ model-viewer {
   visibility: hidden;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   color: rgba(0, 0, 0, 0.8);
   display: block;
   font-family: Helvetica Neue, sans-serif;
@@ -41,7 +41,9 @@ model-viewer {
   color: #333;
   line-height: 22px;
   font-weight: 300;
+  text-align: left;
 }
+
 
 .HotspotAnnotion h2 {
   font-size: 10px;
@@ -51,6 +53,7 @@ model-viewer {
 .HotspotAnnotion p {
   font-size: 5px;
   margin-bottom: 5px;
+  
 }
 //custom loading bar
 

@@ -24,15 +24,18 @@
   
   const infoBoxes = [
     {
+      image: "../images/earhooks.png",
       title:"Adjustable Ear Hooks",
       text: "Ear hooks that can be adjusted for a secure fit.",
-    //   image: "../images/earbud.jpg"
+   
     },
     {
+      image: "../images/sweat_proof.png",
       title:"Sweat Guard",
       text: "Designed with a sweat guard to withstand intense workouts."
     },
     {
+        image: "../images/noise_cancelling.png",
         title:"Strong Noise Cancelling",
         text: "Powerful noise cancellation for immersive sound quality."
       }
@@ -42,12 +45,18 @@
     infoBoxes.forEach((infoBox, index) => {
       const selected = document.querySelector(`[slot='hotspot-${index + 1}'] .HotspotAnnotation`);
       if (selected) {
+
+        let img = document.createElement("img");
+        img.src = infoBox.image;
+        img.alt = infoBox.title; 
+
         let title = document.createElement("h2");
         title.textContent = infoBox.title;
 
         let des = document.createElement("p");
         des.textContent = infoBox.text;
 
+        selected.appendChild(img);
         selected.appendChild(title);
         selected.appendChild(des);
       } else {
