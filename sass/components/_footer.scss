@@ -1,0 +1,109 @@
+.footer {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+    height: 200px;
+  
+    .newsletter-footer {
+      background-color: #121A22; 
+      color: #fff;
+      text-align: center;
+      padding: 60px 40px 40px;
+      margin-bottom: 40px; 
+  
+      h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 1em;
+        color: #ddd;
+        margin-bottom: 20px;
+      }
+  
+      .subscription-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+  
+        input[type="email"] {
+          width: 300px;
+          padding: 10px 15px;
+          border: none;
+          border-radius: 25px 0 0 25px;
+          outline: none;
+          font-size: 1em;
+          color: #333;
+  
+          &::placeholder {
+            color: #999;
+          }
+        }
+  
+        button {
+          padding: 10px 20px;
+          border: none;
+          background-color: #1e90ff; // Light blue color
+          color: #fff;
+          font-size: 1em;
+          border-radius: 0 25px 25px 0;
+          cursor: pointer;
+        }
+      }
+  
+      .terms {
+        color: #ddd;
+        font-size: 0.9em;
+        margin-bottom: 60px;
+  
+        input[type="checkbox"] {
+          margin-right: 8px;
+        }
+  
+        a {
+          color: #1e90ff;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+  
+      p {
+        margin: 0;
+      }
+  
+      a {
+        color: white;
+        text-decoration: none;
+        margin: 0 5px;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+  
+      .social-media {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+  
+        span {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  

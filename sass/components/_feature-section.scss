@@ -1,0 +1,59 @@
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Space between features */
+    max-width: 1200px;
+    margin: 20px auto;
+
+    .feature {
+        flex: 1 1 calc(50% - 20px); /* Two columns layout for larger screens */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        opacity: 1;
+
+        .feature-image {
+            width: 100%;
+            max-width: 300px; /* Limit image size */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+    }
+
+    @media (max-width: 768px) { /* Mobile screens */
+        .feature {
+            flex: 1 1 100%; /* Stack features vertically */
+        }
+
+        .feature-image {
+            max-width: 250px; /* Smaller images for mobile */
+        }
+    }
+
+    @media (max-width: 480px) { /* Very small screens */
+        .feature-image {
+            max-width: 200px; /* Further reduce image size */
+        }
+    }
+
+    @media (min-width: 1024px) { /* Desktop */
+        gap: 30px; /* Add more space between features */
+    }
+}

@@ -1,9 +1,22 @@
 model-viewer {
-  width: auto;
-  max-width: 1200px;
-  height: 800px;
-  background-color: wheat;
-  margin: 0 auto;
+  width: 80%;
+  max-width: 85%;
+  height: 100%;
+  background-color: grey;
+  padding: 180px 30px; // Side padding for mobile
+  margin: 10 auto;
+
+  @media (min-width: 600px) {
+    padding: 0 16px; // Increased padding for tablet view
+    max-width: 600px;
+    height: 600px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 32px; // Increased padding for desktop view
+    max-width: 1200px;
+    height: 800px;
+  }
 }
 
 //customize hotspot
@@ -59,5 +72,5 @@ model-viewer {
 
 model-viewer::part(default-progress-bar) {
   height: 10px;
-  background-color: #ff3333;
+  background-color: white;
 }
