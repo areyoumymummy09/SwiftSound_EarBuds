@@ -1,0 +1,93 @@
+
+
+
+#buds-con {
+    text-align: left; 
+    padding: 20px;
+    background-color: #f5f5f5;
+    width: 100%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (min-width: 768px) {
+        width: 93%;
+        max-width: none;
+        height: 400px;
+        gap: 20px;
+    }
+    @media (min-width: 1024px) {
+        height: 500px;
+    }
+}
+
+.title-and-colors {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: auto;
+        padding-top: 0;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        margin: 0;
+        color: #333;
+    }
+
+    #color-con {
+        display: flex;
+        gap: 10px;
+
+        .color-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            cursor: pointer;
+
+            &#white {
+                background-color: #ffffff;
+            }
+
+            &#pink {
+                background-color: #ffc0cb;
+            }
+        }
+    }
+}
+
+#earbuds-samples {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    img {
+        max-width: 100%; // Use max-width instead of width for responsive control
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+        @media (min-width: 768px) {
+            max-width: 300px; // Smaller width for tablet screens
+        }
+
+        @media (min-width: 1024px) {
+            max-width: 400px; // Larger width for desktop screens
+        }
+    }
+}

@@ -1,0 +1,95 @@
+#xray {
+
+    position: relative;
+    aspect-ratio: 16/10;
+    background-image: url(../images/earbuds-x-ray.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%; 
+    height: 300px;
+    overflow: hidden;
+    margin: 20px auto; 
+    padding: 10px;
+
+    @media (min-width: 768px) { /* Tablet screens */
+        height: 500px;
+        margin: 30px auto; 
+        padding: 15px;
+    }
+
+    @media (min-width: 1024px) { /* Desktop screens */
+        height: 600px; 
+        margin: 50px auto; 
+        padding: 20px; 
+    }
+}
+
+#divisor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../images/hero_bubble.png);
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 100%;
+
+    @media (max-width: 768px) { /* Mobile screens */
+        width: 70%; /* Adjust width for mobile for better alignment */
+    }
+}
+
+// Slider bar styling
+input[type=range] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    top: -18px;
+    left: -2%;
+    background-color: rgba(0, 0, 0, 0.106);
+    width: 102%;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-moz-range-track {
+        height: 15px;
+        width: 98%;
+        background-color: rgba(255, 255, 255, 0.1);
+        position: relative;
+        outline: none;
+    }
+
+    &::active {
+        border: none;
+        outline: none;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 15px;
+        background: #fff;
+        border-radius: 50px;
+
+        &:focus {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    &::-moz-range-thumb {
+        -moz-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 15px;
+        background: #fff;
+        border-radius: 0;
+
+        &:focus {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    }
+}

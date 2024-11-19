@@ -5,70 +5,231 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/main.css" rel="stylesheet" />
-    <!-- link to greensock main library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   </head>
+
   <body>
-    <model-viewer
-    id="model"
-    src="Model_viewer/model/Singel_ear_3d.gltf"
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    camera-controls
-    tone-mapping="neutral"
-    poster="poster.webp"
-    shadow-intensity="1"
-    camera-orbit="-166.7deg 100deg 1.709m"
-    field-of-view="30deg"
-    camera-target="-0.51m -2.09m -0.5606m"
-    min-camera-orbit="auto 70deg auto"
-    max-camera-orbit="auto 100deg auto"
-    data-dashlane-shadowhost="true"
-    data-dashlane-observed="true"
+    <header class="header">
+      <img src="./images/logo_music.svg" alt="Logo" class="logo" width="70" height="70">
+      <button id="hamburger" class="menu-toggle">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+      </button>
+    </header>
+
+    <div id="menu" class="overlay">
+      <!-- <button id="close"></button> -->
+        <nav>
+            <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">3D Model</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="product-section">
+      <div class="product-info">
+        <h2>Your perfect sports earbuds</h2>
+        <h1>Sport X</h1>
+        <p> Comfortable In-Ear Sport Earbuds with Hook
+      Designed for comfort, durability, and crystal-clear sound, 
+these earbuds are your ultimate companion for every run, lift, and stride.
+        </p>
+      </div>
+      <div class="product-image">
+        <img src="./images/hero_bubble.png" alt="Earbuds">
+      </div>
+    </section>
+
+    <div class="scroll-indicator-outer">
+    <div class="scroll-indicator">
+      <div class="highlight"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+ 
+  <div class="col-span-full">
+    <canvas id="explode-view"></canvas> 
+</div>
+
+  <div id="buds-con">
+    <div class="title-and-colors">
+        <h2>Check out our collection</h2>
+        <section id="color-con">
+            <button id="white" class="color-button" data-color="white"></button>
+            <button id="pink" class="color-button" data-color="pink"></button>
+        </section>
+    </div>
+    <section id="earbuds-samples">
+        <img src="./images/hero-image.png" id="ear-buds-1" alt="Earbuds white front">
+        <img src="./images/hero-image.png" id="ear-buds-2" alt="Earbuds white side">
+    </section>
+</div>
+
+<!-- Features -->
+<section class="features">
+  <div class="feature">
+    <img src="images/call_quality.png" alt="Call quality" class="feature-image">
+    <h3 class="feature-title">SwiftSound best ever call quality</h3>
+    <p class="feature-description">
+      Noise reduction algorithms developed with AI machine learning suppress ambient noise 
+      and ensure the person on the other end of the phone can hear your voice clearly even in noisy situations.
+    </p>
+  </div>
+  <div class="feature">
+    <img src="images/sond_quality.png" alt="Sound quality" class="feature-image">
+    <h3 class="feature-title">Astonishing sound quality</h3>
+    <p class="feature-description">
+      Experience astonishing sound quality with these sports earbuds, designed to deliver powerful, crystal-clear audio. With deep, resonant bass that energizes your workouts, every beat feels immersive, keeping you motivated and focused. 
+      Perfect for athletes who demand premium sound on the move.
+    </p>
+  </div>
+</section>
+
+
+<div class="popular-brands-section">
+  <h2>Popular Sports Brands</h2>
+  <p class="subtitle">Top-rated sports earbud</p>
+  <div class="brands">
+    <div class="brand-card">
+      <div class="brand-icon">
+        <img src="images/bluetooth.svg" alt="Bluetooth Icon">
+      </div>
+      <h3>Mulit-point Connection</h3>
+    
+    </div>
+    
+    <div class="brand-card">
+      <div class="brand-icon">
+        <img src="images/music.svg" alt="icon">
+      </div>
+      <h3>Strong Noise Cancellatoin</h3>
+    
+    </div>
+
+    <div class="brand-card">
+      <div class="brand-icon">
+        <img src="images/sweat_proof.png" alt="AudioMax Icon">
+      </div>
+      <h3>Rugged Build</h3>
+
+    </div>
+    
+    <div class="brand-card">
+      <div class="brand-icon">
+        <img src="images/music.svg" alt="icon">
+      </div>
+      <h3>Soft Touch</h3>
+   
+    </div>
+  </div>
+
+</div>
+
+  <model-viewer
+  id="model"
+  src="Model_viewer/model/Singel_ear_3d.gltf"
+  ar
+  ar-modes="webxr scene-viewer quick-look"
+  camera-controls
+  tone-mapping="neutral"
+  poster="poster.webp"
+  shadow-intensity="1"
+  camera-orbit="-166.7deg 100deg 1.709m"
+  field-of-view="30deg"
+  camera-target="-0.51m -2.09m -0.5606m"
+  min-camera-orbit="auto 70deg auto"
+  max-camera-orbit="auto 100deg auto"
+  data-dashlane-shadowhost="true"
+  data-dashlane-observed="true"
 >
-    <!-- Hotspot 1: Adjustable Ear Hooks -->
-    <button
-        class="Hotspot"
-        slot="hotspot-1"
-        data-position="-0.6656506419543047m -1.796255116328863m -0.5573909156631414m"
-        data-normal="0.2754932391419712m -0.30311000473588495m -0.9122652027870386m"
-        data-visibility-attribute="visible"
-    >
-        <div class="HotspotAnnotation"></div>
-    </button>
-  
-    <!-- Hotspot 2: Sweat Guard -->
-    <button
-        class="Hotspot"
-        slot="hotspot-2"
-        data-position="-0.4707831716898481m -2.0320169350508386m -0.6839883817617827m"
-        data-normal="0.0633332670181215m 0.41450714203660144m -0.9078395929289822m"
-        data-visibility-attribute="visible"
-    >
-        <div class="HotspotAnnotation"></div>
-    </button>
-  
-    <!-- Hotspot 3: Strong Noise Cancelling -->
-    <button
-        class="Hotspot"
-        slot="hotspot-3"
-        data-position="-0.2743413438142228m -2.306703026841566m -0.5999849820038027m"
-        data-normal="0.8400113743060258m -0.1281175897784994m -0.5272255439807996m"
-        data-visibility-attribute="visible"
-    >
-        <div class="HotspotAnnotation"></div>
-    </button>
+  <!-- Hotspot 1: Adjustable Ear Hooks -->
+  <button
+      class="Hotspot"
+      slot="hotspot-1"
+      data-position="-0.6656506419543047m -1.796255116328863m -0.5573909156631414m"
+      data-normal="0.2754932391419712m -0.30311000473588495m -0.9122652027870386m"
+      data-visibility-attribute="visible"
+  >
+      <div class="HotspotAnnotation"></div>
+  </button>
 
-    <!-- AR Button -->
-    <button slot="ar-button" id="ar-button">View in your space</button>
+  <!-- Hotspot 2: Sweat Guard -->
+  <button
+      class="Hotspot"
+      slot="hotspot-2"
+      data-position="-0.4707831716898481m -2.0320169350508386m -0.6839883817617827m"
+      data-normal="0.0633332670181215m 0.41450714203660144m -0.9078395929289822m"
+      data-visibility-attribute="visible"
+  >
+      <div class="HotspotAnnotation"></div>
+  </button>
 
+  <!-- Hotspot 3: Strong Noise Cancelling -->
+  <button
+      class="Hotspot"
+      slot="hotspot-3"
+      data-position="-0.2743413438142228m -2.306703026841566m -0.5999849820038027m"
+      data-normal="0.8400113743060258m -0.1281175897784994m -0.5272255439807996m"
+      data-visibility-attribute="visible"
+  >
+      <div class="HotspotAnnotation"></div>
+  </button>
 
+  <!-- AR Button -->
+  <button slot="ar-button" id="ar-button">View in your space</button>
 </model-viewer>
-  
 
-    <!-- Loads <model-viewer> for browsers: -->
+<!-- x-ray -->
+  <div class="col-span-full">
+    <div id="comparison-con">
+        <div id="xray">
+            <div id="divisor"></div>
+        </div>
+        <input type="range" min="0" max="100" value="50" id="slider">
+    </div>
+</div>
+
+
+  </body>
+
+  <footer class="footer">
+    <div class="newsletter-footer">
+      <h2>Subscribe to our newsletter</h2>
+      <p>for the latest soundcore news, deals, and more.</p>
+      <div class="subscription-form">
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">Subscribe</button>
+      </div>
+      <div class="terms">
+        <input type="checkbox" id="agree">
+        <label for="agree">I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</label>
+      </div>
+
+    <div class="footer-content">
+        <p>&copy; 2024 Earbud Demo. All Rights Reserved.</p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <div class="social-media">
+            <span>Connect with Us:</span>
+            <a href="#">Twitter</a> |
+            <a href="#">Facebook</a> |
+            <a href="#">Instagram</a>
+        </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>
+     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
       <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
       <script src="js/main.js"></script>
-  </body>
+
 </html>
