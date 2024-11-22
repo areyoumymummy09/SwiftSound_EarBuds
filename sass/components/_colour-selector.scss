@@ -1,93 +1,93 @@
-
-
-
 #buds-con {
-    text-align: left; 
-    padding: 20px;
-    background-color: #f5f5f5;
-    width: 100%;
-    max-width: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  text-align: left;
+  padding: 40px; // Increase the padding for more spacing inside the box
+  background-color: #f5f5f5;
+  width: 100%;
+  max-width: 1200px; // Adjust this if needed
+  margin: 0 auto; // Center horizontally
+  display: grid;
+  grid-template-rows: auto auto; // Text in the first row, images in the second
+  gap: 20px;
+  border-radius: 10px; // Add rounded corners if needed
 
-    @media (min-width: 768px) {
-        width: 93%;
-        max-width: none;
-        height: 400px;
-        gap: 20px;
-    }
-    @media (min-width: 1024px) {
-        height: 500px;
-    }
+  @media (min-width: 768px) {
+    padding: 50px; // Larger padding for tablets
+    width: 90%;
+    max-width: 900px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 60px; // Even larger padding for desktops
+    max-width: 800px;
+  }
 }
 
 .title-and-colors {
+  grid-row: 1; // Place in the first row of the grid
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #333;
+  }
+
+  #color-con {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     gap: 10px;
-    margin-bottom: 20px;
 
-    @media (min-width: 768px) {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        height: auto;
-        padding-top: 0;
+    .color-button {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      cursor: pointer;
+
+      &#white {
+        background-color: #ffffff;
+      }
+
+      &#pink {
+        background-color: #ffc0cb;
+      }
     }
-
-    h2 {
-        font-size: 1.2em;
-        margin: 0;
-        color: #333;
-    }
-
-    #color-con {
-        display: flex;
-        gap: 10px;
-
-        .color-button {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 2px solid #ccc;
-            cursor: pointer;
-
-            &#white {
-                background-color: #ffffff;
-            }
-
-            &#pink {
-                background-color: #ffc0cb;
-            }
-        }
-    }
+  }
 }
 
 #earbuds-samples {
-    display: flex;
-    flex-direction: column;
+  grid-row: 2; // Place in the second row of the grid
+  display: grid;
+  grid-template-columns: 1fr; // Single column for mobile-first
+  gap: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // Two columns for tablets and above
     gap: 20px;
+  }
+
+  img {
+    max-width: 100%; // Ensure responsive control
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 
     @media (min-width: 768px) {
-        flex-direction: row;
-        justify-content: center;
-        gap: 10px;
+      max-width: 300px; // Adjust width for tablets
     }
 
-    img {
-        max-width: 100%; // Use max-width instead of width for responsive control
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-
-        @media (min-width: 768px) {
-            max-width: 300px; // Smaller width for tablet screens
-        }
-
-        @media (min-width: 1024px) {
-            max-width: 400px; // Larger width for desktop screens
-        }
+    @media (min-width: 1024px) {
+      max-width: 400px; // Adjust width for desktops
     }
+  }
 }

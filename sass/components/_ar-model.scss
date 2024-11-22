@@ -2,24 +2,23 @@ model-viewer {
   width: 80%;
   max-width: 85%;
   height: 100%;
-  background-color: grey;
-  padding: 180px 30px; // Side padding for mobile
-  margin: 10 auto;
+  padding: 180px 30px; /* Side padding for mobile */
+  margin: auto auto;
 
   @media (min-width: 600px) {
-    padding: 0 16px; // Increased padding for tablet view
+    padding: 0 16px; /* Increased padding for tablet view */
     max-width: 600px;
     height: 600px;
   }
 
   @media (min-width: 1024px) {
-    padding: 0 32px; // Increased padding for desktop view
+    padding: 0 32px; /* Increased padding for desktop view */
     max-width: 1200px;
     height: 800px;
   }
 }
 
-//customize hotspot
+/* Customize hotspot */
 .Hotspot {
   background: url(../images/hotspot.svg) no-repeat center;
   border: 0;
@@ -31,6 +30,14 @@ model-viewer {
   opacity: 0;
 }
 
+/* Hide HotspotAnnotation on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .HotspotAnnotation {
+    display: none !important; /* Disable hotspot annotation display */
+  }
+}
+
+/* Default HotspotAnnotation styles */
 .HotspotAnnotation {
   visibility: hidden;
   background: #fff;
@@ -57,7 +64,6 @@ model-viewer {
   text-align: left;
 }
 
-
 .HotspotAnnotion h2 {
   font-size: 10px;
   margin-bottom: 5px;
@@ -66,10 +72,9 @@ model-viewer {
 .HotspotAnnotion p {
   font-size: 5px;
   margin-bottom: 5px;
-  
 }
-//custom loading bar
 
+/* Customize loading bar */
 model-viewer::part(default-progress-bar) {
   height: 10px;
   background-color: white;

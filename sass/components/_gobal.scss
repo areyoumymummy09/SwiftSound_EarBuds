@@ -1,0 +1,8 @@
+@use '../abstracts/variables' as vars;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; // Ensures the background color covers the full viewport
+  background-color: vars.$bg-image
+}

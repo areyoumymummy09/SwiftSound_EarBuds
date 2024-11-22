@@ -1,8 +1,9 @@
+@use '../abstracts/variables' as vars;
 .product-section {
   display: flex;
   flex-direction: column; // Stack items on mobile
   gap: 20px;
-  padding: 10px 16px;
+  padding: 10px 30px; // Added more padding to the left and right
   align-items: center;
   overflow-x: hidden; // Temporarily hide horizontal overflow
 
@@ -15,7 +16,7 @@
   .product-info {
     h2 {
       font-size: 1.2em;
-      color: black;
+      color: vars.$text-color;
       margin-bottom: 10px;
     }
 
@@ -23,12 +24,13 @@
       font-size: 2em; // Slightly smaller for mobile
       font-weight: bold;
       margin-bottom: 15px;
+      color: vars.$text-color
     }
 
     p {
       font-size: 1em;
       line-height: 1.6;
-      color: grey;
+      color: vars.$text-color;
     }
   }
 
@@ -49,6 +51,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 20px 50px; // Increase padding on the left and right for tablets
   
     .product-info,
     .product-image {
@@ -68,75 +71,80 @@
   
   // Desktop and larger screens
   @media (min-width: 1024px) {
-    .product-section {
+    flex-direction: row;
+    gap: 80px; // Space between text and image
+    align-items: flex-start; // Align items to the top of the container
+    justify-content: space-between; // Ensure image is on the right side
+    padding: 20px 40px; // Add larger padding for desktops
+
+    .product-info {
+      width: 50%; // Set width for the text section
+      padding-left: 40px; // Add 40px padding on the left for text
+    }
+
+    .product-image {
+      width: 50%; // Set width for the image section
       display: flex;
-      gap: 80px; // Space between text and image
-      align-items: flex-start; // Align items to the top of the container
-      justify-content: space-between; // Ensure image is on the right side
+      justify-content: flex-end; // Align image to the right
 
-      .product-info {
-        width: 50%; // Set width for the text section
-        padding-left: 40px; // Add 40px padding on the left for text
-      }
-
-      .product-image {
-        width: 50%; // Set width for the image section
-        display: flex;
-        justify-content: flex-end; // Align image to the right
-
-        img {
-          max-width: 100%; // Image takes up the full width of its container
-          height: auto;
-        }
+      img {
+        max-width: 100%; // Image takes up the full width of its container
+        height: auto;
       }
     }
 
     .product-info h1 {
-      font-size: 3em; // Larger font size for desktop
+      font-size: 6em; 
     }
+    .product-info h2{
+        font-size: 2em; // Larger font size for desktop
+    }
+    .product-info p{
+        font-size: 1em; // Larger font size for desktop
+    }
+    
+  }
 }
 
-}
-
- // Scroll Indicator
- @media (min-width: 600px) {
- .scroll-indicator-outer {
-  position: relative; // Fixes it to the viewport, regardless of section position
-  margin-bottom: 40px;
-  bottom: 80px; // Position it at the bottom of the viewport
-  left: 50%;
-  top:20px;
-  transform: translateX(-50%);
-  width: 40px; 
-  height: 80px; 
-  border: 1px solid black; 
-  border-radius: 50px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10; // Ensure it’s on top of other elements
-  overflow: hidden; 
-
-
-  .scroll-indicator .dot {
-    width: 20px;
-    height: 20px;
-    border-radius: 80%;
-    opacity: 0; }
-
-  .scroll-indicator {
+// Scroll Indicator
+@media (min-width: 600px) {
+  .scroll-indicator-outer {
+    position: relative; // Fixes it to the viewport, regardless of section position
+    margin-bottom: 40px;
+    bottom: 80px; // Position it at the bottom of the viewport
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    width: 40px; 
+    height: 80px; 
+    border: 1px solid vars.$text-color; 
+    border-radius: 50px; 
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; 
+    overflow: hidden;
 
-  }
+    .scroll-indicator .dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 80%;
+      opacity: 0;
+    }
 
-  .highlight {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: lightgrey; 
-    top: 10px; 
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .highlight {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: vars.$primary-color; 
+      top: 10px; 
+    }
   }
-  }}
+}
