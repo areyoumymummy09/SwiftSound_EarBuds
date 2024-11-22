@@ -1,8 +1,19 @@
-@use 'fonts';
+html{
+    margin: 0;
+    padding: 0;
+  }
+    $text-color: #333;
+    $primary-color: #333;
+    $accent-color: #ffffff;
+    $bg-image: '../images/background-grey.jpeg';
 
-$background-color: #f5f5f5;
-$text-color: #333;
-$primary-color: #333;
-$accent-color: black;
-$font-family: Arial, sans-serif;
+
+    body {
+      background-image: url('../images/background-grey.jpeg'); 
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat; 
+    }
+    
+
 

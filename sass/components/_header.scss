@@ -1,10 +1,18 @@
-
+@use '../abstracts/variables' as vars;
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
-  padding-top: 30px;
+  padding: 30px 20px 10px 20px; 
+
+  @media (min-width: 600px) {
+    padding: 30px 40px 10px 40px; 
+ 
+  }
+
+  @media (min-width: 1024px) {
+    padding: 30px 60px 10px 60px; 
+  }
 
   .logo {
     width: 80px;
@@ -13,7 +21,7 @@
     transform: translateX(20px); 
 
     @media (min-width: 600px) {
-      width: 100px; // Medium size for tablet view
+      width: 100px; 
       height: 100px;
       margin: 0; 
     }
@@ -24,22 +32,54 @@
     }
   }
   
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 24px;
   
-    .menu-toggle {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
+    span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: black; 
+      transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease; 
+    }
   
+    span:nth-child(1) {
+      top: 0; // Top span
+    }
+  
+    span:nth-child(2) {
+      top: 10px; // Middle span
+    }
+  
+    span:nth-child(3) {
+      top: 20px; // Bottom span
+    }
+  
+    &.active {
       span {
-        display: block;
-        width: 25px;
-        height: 2px;
-        background-color: grey;
+        background-color:vars.$accent-color; 
+      }
+      span:nth-child(1) {
+        transform: translateY(10px) rotate(45deg); 
+      }
+  
+      span:nth-child(2) {
+        opacity: 0; 
+      }
+  
+      span:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg); 
       }
     }
   }
-
   
+  }

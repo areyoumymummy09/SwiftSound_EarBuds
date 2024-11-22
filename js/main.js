@@ -1,6 +1,6 @@
 (() => {
 
-    //variables
+   //Hotpots
     const model = document.querySelector("#model");
     const hotspots = document.querySelectorAll(".Hotspot");
   
@@ -65,8 +65,6 @@
     });
   }
 
-  
-  // call the funcation to load data
   loadInfo();
   
   function modelLoaded() {
@@ -80,136 +78,70 @@
       hotspot.addEventListener("mouseleave", hideInfo);
     });
 
+    // Explode scroll trigger
+    gsap.registerPlugin(ScrollTrigger);
 
-// scroll explodsion 
-gsap.registerPlugin(ScrollTrigger);
+    const canvas = document.querySelector("#explode-view");
+    const context = canvas.getContext("2d");
 
-const canvas = document.querySelector("#explode-view");
-const context = canvas.getContext("2d");
-
-function setCanvasSize() {
-  if (window.innerWidth <= 768) {
-      // For mobile screens
-      canvas.width = 400; // Adjust for mobile
-      canvas.height = 300;
-  } else if (window.innerWidth <= 1024) {
-      // For tablet screens
-      canvas.width = 800; // Adjust for tablets
-      canvas.height = 600;
-  } else {
-      // For desktop screens
-      canvas.width = 1200; // Default for desktop
-      canvas.height = 900;
-  }
-}
-canvas.width = 1200;
-canvas.height = 900;
-
-const frameCount = 91; //how many still frames 
-const images = []; //arrey to hold images
+    canvas.width = 1920;
+    canvas.height = 1080;
+ 
+ const frameCount = 91; 
+ const images = []; 
 
 //Fill the arrey with images and point to the images 
-
+ 
 for(let i = 0; i < frameCount; i++){
-   const img = new Image();
-   //recreating the path: images/explode_000.1.webp
-   img .src = `images/explode_${(i+1).toString().padStart(4, '0')}.webp`;
-   images.push(img);
+    const img = new Image();
+    img .src = `images/explode_${(i+1).toString().padStart(4, '0')}.webp`;
+    images.push(img);
 }
 
-   const buds = {
-       frame: 0 
-   }
+    const buds = {
+        frame: 0 
+    }
+    gsap.to(buds,{
+        frame: 90, 
+        snap: "frame", 
+        scrollTrigger: {
+            trigger: "#explode-view",
+            pin: true,
+            scrub: 1,
+            start: "top top",
+        },
+        onUpdate: render
+    })
+    images[0].addEventListener("load",render)
 
-   // Set up ScrollTrigger with media queries
-ScrollTrigger.matchMedia({
-    // For screens 768px or smaller (mobile)
-    "(max-width: 768px)": function () {
-        gsap.to(buds, {
-            frame: 91,
-            snap: "frame",
-            scrollTrigger: {
-                trigger: "#explode-view",
-                pin: true,
-                scrub: 1,
-                start: "top top", // Adjust the start point for mobile
-                end: "+=300", // Shorter scroll duration for mobile
-                pinSpacing: true,
-            },
-            onUpdate: render,
-        });
-    },
+    function render(){
+  
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(images[buds.frame], 0, 0)
 
-    // For screens between 768px and 1024px (tablet)
-    "(min-width: 769px) and (max-width: 1024px)": function () {
-        gsap.to(buds, {
-            frame: 91,
-            snap: "frame",
-            scrollTrigger: {
-                trigger: "#explode-view",
-                pin: true,
-                scrub: 1.5, // Slightly smoother scroll for tablets
-                markers: true,
-                start: "top+=50 top", // Adjusted start for tablets
-                end: "+=400", // Medium scroll duration
-                pinSpacing: true,
-            },
-            onUpdate: render,
-        });
-    },
-
-    // For screens larger than 1024px (desktop)
-    "(min-width: 1025px)": function () {
-        gsap.to(buds, {
-            frame: 91,
-            snap: "frame",
-            scrollTrigger: {
-                trigger: "#explode-view",
-                pin: true,
-                scrub: 1,
-                markers: true,
-                start: "top+=120 top", // Original start
-                end: "+=500", // Original end duration
-                pinSpacing: true,
-            },
-            onUpdate: render,
-        });
-    },
-});
-
-images[0].addEventListener("load", render);
-
-function render() {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-
-    const img = images[Math.floor(buds.frame)];
-    const imgWidth = img.width;
-    const imgHeight = img.height;
-
-    // Adjust the scale factor for responsive sizes
-    let scaleFactor = 0.6;
-    if (window.innerWidth <= 768) {
-        scaleFactor = 0.6; // Smaller scaling for mobile
-    } else if (window.innerWidth <= 1024) {
-        scaleFactor = 0.5; // Medium scaling for tablets
     }
 
-    const scaledWidth = imgWidth * scaleFactor;
-    const scaledHeight = imgHeight * scaleFactor;
+    //scroll trigger with product image
 
-    const drawX = (canvas.width - scaledWidth) / 2;
-    const drawY = (canvas.height - scaledHeight) / 2;
-
-    context.drawImage(
-        img,
-        0, 0,
-        imgWidth, imgHeight,
-        drawX, drawY,
-        scaledWidth, scaledHeight
-    );
-
+      gsap.registerPlugin(ScrollTrigger);
     
-}
+      gsap.utils.toArray(".feature").forEach((feature) => {
+        console.log("Animating feature:", feature); 
+    
+        gsap.from(feature, {
+          y: 100, 
+          opacity: 0, 
+          duration: 1, 
+          ease: "power3.out", 
+          scrollTrigger: {
+            trigger: feature, 
+            toggleActions: "play pause none none",
+            start: "top 80%", 
+            scrub: 1, 
+          },
+        });
+    });
+    
 
   //x-ray
 
@@ -219,63 +151,61 @@ function render() {
     function moveDivisor() {
       console.log("slider.value");
       divisor.style.width = slider.value+"%";
-    // divisor.style.width = `${slider.value+"%"}`;
-
   
     }
   
     slider.addEventListener("input", moveDivisor);
 
+//Colour-selector
 
+const earbuds1 = document.querySelector("#ear-buds-1");
+const earbuds2 = document.querySelector("#ear-buds-2");
+const buttons = document.querySelectorAll("#color-con button");
 
+function swapColor(e) {
+  const selectedColor = e.currentTarget.getAttribute("data-color");
 
-    // Animate each feature section
-    gsap.registerPlugin(ScrollTrigger);
+  // Construct file paths dynamically
+  const caseImagePath = `images/${selectedColor}_case.png`;
+  const earbudsImagePath = `images/${selectedColor}_earbuds.png`;
 
-// Animate each feature section
-gsap.utils.toArray(".feature").forEach((feature) => {
-  gsap.from(feature, {
-    y: 100, // Start position: 100px below its original position
-    opacity: 0, // Start fully transparent
-    duration: 1, // Animation duration
-    ease: "power3.out", // Smooth easing
-    scrollTrigger: {
-      trigger: feature, // Trigger animation when the feature enters the viewport
-      start: "top 80%", // Trigger when the top of the feature is 80% of the viewport height
-      end: "top 50%", // End animation when it reaches 50% of the viewport height
-      scrub: false, // Smooth animation is off
-      markers: true, // Show debugging markers
-    },
-  });
+  // Log to ensure correct paths
+  console.log("Case image path:", caseImagePath);
+  console.log("Earbuds image path:", earbudsImagePath);
+
+  // Update image sources
+  earbuds1.src = `${caseImagePath}?t=${new Date().getTime()}`; 
+  earbuds2.src = `${earbudsImagePath}?t=${new Date().getTime()}`;
+
+  // Log updated src values
+  console.log("Updated ear-buds-1 src:", earbuds1.src);
+  console.log("Updated ear-buds-2 src:", earbuds2.src);
+}
+
+buttons.forEach((button) => {
+  button.addEventListener("click", swapColor);
 });
-
-    
-  
-  //Colour-selector
-
-    const earbuds  =document.querySelector("#earbuds-samples");
-    const buttons = document.querySelectorAll("#color-con button");
-
-    function swapColor(e){
-            console.log(e.currentTarget.id);
-            const selected = e.currentTarget.id;
-            earbuds.src =`images/${selected}.jpg`;
-    }
-
-    buttons.forEach(button =>{
-        button.addEventListener("click",swapColor);
-    })
-
 
 
 //hamburger
-    const hamburger = document.querySelector('#hamburger');
-    const menuOverlay = document.querySelector('#menu');
+const hamburger = document.querySelector('#hamburger');
+const menuOverlay = document.querySelector('#menu');
+const menuLinks = document.querySelectorAll('#menu a');
 
-    hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active'); 
-    menuOverlay.classList.toggle('active'); 
+// Toggle menu visibility with the hamburger button
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active'); 
+  menuOverlay.classList.toggle('active'); 
 });
+
+// Close menu when a menu item is clicked
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active'); // Reset hamburger button
+    menuOverlay.classList.remove('active'); // Close the menu
+  });
+});
+
 
 
 //dots
